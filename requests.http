@@ -1,0 +1,42 @@
+### Listar produtos
+GET http://localhost:8080/api/products
+Accept: application/json
+
+### Cadastrar produto
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Teclado Mecânico",
+  "description": "Teclado mecânico com iluminação RGB",
+  "price": 249.90,
+  "sku": "TEC-001",
+  "brand": "Logitech",
+  "categoryId": 1
+}
+
+### Produto com preço inválido
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Mouse",
+  "description": "Mouse sem fio",
+  "price": -10,
+  "sku": "MOU-001",
+  "brand": "Logitech",
+  "categoryId": 1
+}
+
+### Categoria inexistente
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Mouse",
+  "description": "Mouse sem fio",
+  "price": 99.90,
+  "sku": "MOU-002",
+  "brand": "Logitech",
+  "categoryId": 999
+}
