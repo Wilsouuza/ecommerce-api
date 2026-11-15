@@ -3,7 +3,6 @@ package com.wilsouuza.ecommerce.product;
 
 import com.wilsouuza.ecommerce.category.Category;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,16 +12,26 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "products")
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 
 public class Product {
 
+    public Product(String name, String description, BigDecimal price, String sku, String brand, Category category) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.sku = sku;
+        this.brand = brand;
+        this.category = category;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    @Column(name = "", nullable = false, length = 250)
+    @Column(nullable = false, length = 250)
     private String name;
 
     @Column(nullable = false, length = 700)
